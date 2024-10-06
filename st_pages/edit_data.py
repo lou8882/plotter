@@ -197,6 +197,13 @@ def edit_data_page():
     if len(df.columns) == 0:
         if st.button("Add Column", key=constants.BUTTON_ADD_COLUMN):
             add_column(session)
+        
+        st.button(
+            label="Go Back",
+            key=constants.BUTTON_BACK,
+            on_click=session.new_page,
+            args=[constants.PAGE_IMPORT_DATA]
+            )
     else: 
         col1, col2, col3 = st.columns(3)
         col1.subheader("Edit Data")
