@@ -30,9 +30,9 @@ def gen_map_page():
         else:
             df[constants.COLOR_COLUMN_NAME] = helpers.generate_random_color()
         
-        df = df.dropna()
+        df = df.dropna(subset=['lat', 'lon'])
 
-        st.map(session.data,
+        st.map(df,
                latitude=lat_column,
                longitude=lon_column,
                color=constants.COLOR_COLUMN_NAME,

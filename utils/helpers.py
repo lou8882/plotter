@@ -56,8 +56,8 @@ def get_single_lat_lon(address: str) -> tuple[int, int]:
     resp_json = resp.json()
     print(f"address: {address}\nresp: {resp_json}\n\n")
     try:
-        latitude = resp_json[0][constants.LABEL_LATITUDE]
-        longitude = resp_json[0][constants.LABEL_LONGITUDE]
+        latitude = float(resp_json[0][constants.LABEL_LATITUDE])
+        longitude = float(resp_json[0][constants.LABEL_LONGITUDE])
         return latitude, longitude
     except:
         return None, None
@@ -70,9 +70,9 @@ def add_address_data(session: SessionData, address_col: str):
     lon = constants.LABEL_LONGITUDE
 
     if not lat in df.columns:
-        df[lat] = None
+        df[lat] = pd.Series(dtype=float)
     if not lon in df.columns:
-        df[lon] = None
+        df[lon] = pd.Series(dtype=float)
     prog_bar = st.progress(0)
     status_text = st.empty()
     errors = 0
@@ -87,6 +87,8 @@ def add_address_data(session: SessionData, address_col: str):
             df[lon][i] = longitude
         else:
             errors += 1
+            df[lat][i] = None
+            df[lon][i] = None
     prog_bar.balloons()
     status_text.text(f"Retrieving Lat/Lon Completed\n{successes} successful\n{errors} failures\n")
 
