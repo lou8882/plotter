@@ -1,6 +1,7 @@
 import streamlit as st
 
 from utils.helpers import cur_session
+from utils import constants
 
 # def get_navigation():
 #     print("get nav")
@@ -15,5 +16,9 @@ def get_ses_state():
 def get_sidebar():
     session = cur_session()
     with st.sidebar:
-        st.text(get_ses_state())
-        st.text(f"SessionData: {session.get_all_attrs()}")
+        st.button("debug",
+                     constants.BUTTON_DEBUG,
+                     on_click=session.debug_switch)
+        if session.debug:
+            st.text(get_ses_state())
+            st.text(f"SessionData: {session.get_all_attrs()}")

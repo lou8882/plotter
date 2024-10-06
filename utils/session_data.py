@@ -12,6 +12,7 @@ class SessionData():
         self._page = page
         self._buttons = []
         self._filters = None
+        self._debug = False
 
 
     # ===== DATA ===== 
@@ -137,6 +138,14 @@ class SessionData():
 
 
     # ===== DEBUG ===== 
+    @property
+    def debug(self) -> bool:
+        return self._debug
+
+
+    def debug_switch(self) -> None:
+        self._debug = not self._debug
+
     def print_attr(self) -> None:
         print(f"""
 session._data: {self._data}

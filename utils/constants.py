@@ -86,7 +86,7 @@ BUTTON_GEN_MAP = "btn_gen_map"
 
 NEW_COL_NAME = "New Column"
 USER_AGENT = "tacocat-labs"
-
+BUTTON_DEBUG = "debug"
 # SES_PAGE_KEY = "page"
 # SES_BUTTON_KEY = "button"
 # SES_FILTERS_KEY = "filters"
