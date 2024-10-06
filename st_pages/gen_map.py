@@ -43,7 +43,6 @@ def gen_map_page():
                longitude=lon_column,
                color=constants.COLOR_COLUMN_NAME,
                )
-    
 
     st.button("Return to Data",
               key=constants.BUTTON_BACK,
