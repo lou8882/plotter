@@ -22,7 +22,13 @@ def gen_map_page():
                             options=session.data.columns,
                             index=None)
     
-    if lat_column and lon_column:
+    disable = not (lat_column and lon_column)
+
+    if st.button(
+        label="Make Map",
+        key=constants.BUTTON_CONTINUE,
+        disabled=disable):
+
         print(f"cat_column: {lat_column}, lon_col: {lon_column}, color_col: {color_col}")
         df = session.data
         if color_col:
