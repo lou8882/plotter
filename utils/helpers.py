@@ -78,7 +78,7 @@ def add_address_data(session: SessionData, address_col: str):
     errors = 0
     successes = 0
     for i, row in df.iterrows():
-        prog_bar.progress((i+1) / (len(df) +1))
+        prog_bar.progress((i) / (len(df)))
         status_text.text(f"Progress: {i} out of {len(df)} addresses parsed\n{successes} successes\n{errors} failures\n")
         latitude, longitude = get_single_lat_lon(row[address_col])
         if latitude:
