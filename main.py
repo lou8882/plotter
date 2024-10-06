@@ -5,7 +5,7 @@ from utils import navigation
 import os
 
 print(f"\n============\nreload\n") 
-if os.getenv("HOSTNAME") == "streamlit":
+if os.getenv("HOSTNAME") != "streamlit":
     navigation.get_sidebar()
 
 session = helpers.cur_session()
