@@ -5,7 +5,7 @@ from utils import navigation
 # base_dir = os.path.dirname(os.path.realpath(__file__))
 
 print(f"\n============\nreload\n") 
-navigation.get_sidebar()
+# navigation.get_sidebar()
 
 session = helpers.cur_session()
 
